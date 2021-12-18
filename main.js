@@ -10,4 +10,35 @@ function gotResults(error, results) {
     if (error) {
         console.error(error);
     }
+    else {
+        console.log(results);
+
+    
+        label = results[0].label;
+        accuracy = results[0].confidence;
+
+        document.getElementById('result').innerHTML = "I can hear - " + label;
+        document.getElementById('accuracy').innerHTML = "Accuracy - " + (accuracy * 100).toFixed(2) + "%";
+
+        img1 = document.getElementById("main_image");
+       
+
+        if(label == "Barking") {
+            img1.src = "dog.gif";
+        }
+        else if(label == "Meow") {
+            img1.src = "cat.gif";
+        }
+        else if(label == "Ribbit") {
+            img1.src = "frog.gif";
+        }
+        else if(label == "Howl") {
+            img1.src = "wolf.gif";
+        }
+        else {
+            img1.src = "human-ear1.png";
+        }
+    }
+
+
 }
